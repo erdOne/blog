@@ -1,0 +1,258 @@
+<!doctype html>
+<html><head>
+<title>班級公告欄</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script type="text/javascript"> 
+    $(()=>{
+        $("#post_form").submit(async ()=>{
+            var dataOut = {
+                status:"post",
+                content:$("#post_content").val(),
+                code : window.sessionStorage["uidcode"]
+            }
+            var recieved = await new Promise((res,rej)=>{
+                $.ajax({
+                    type: "POST",
+                    url: "/ajax",
+                    data: dataOut,
+                    success: function(data) {
+                        res(data);
+                    }
+                });
+            });
+            if(recieved.result !== "success"){
+                alert(recieved.result);
+            }else{
+                window.open("#home","_self");
+                angular.element($("body")).scope().$apply();
+            }
+        });
+        $("#edit_form").submit(async ()=>{
+            var id = $("#edit_id").val();
+            var dataOut = {
+                status:"edit",
+                content:$("#edit_content").val(),
+                code : window.sessionStorage["uidcode"],
+                postId : id
+            }
+            var recieved = await new Promise((res,rej)=>{
+                $.ajax({
+                    type: "POST",
+                    url: "/ajax",
+                    data: dataOut,
+                    success: function(data) {
+                        res(data);
+                    }
+                });
+            });
+            if(recieved.result !== "success"){
+                alert(recieved.result);
+            }else{
+                data_posts[id-1].content = $("#edit_content").val();
+                window.open("#home","_self");
+                angular.element($("body")).scope().posts = data_posts;
+                angular.element($("body")).scope().$apply();
+                view(id);
+            }
+        });
+    });
+    function logout(){
+        window.sessionStorage.removeItem("uidcode");
+        window.localStorage.removeItem("uidcode");
+        window.open("/login","_self");
+    }
+    function view(id){
+        var post = data_posts[id-1];
+        $("#view_uid").html(post.creator);
+        $("#view_date").html(post.date.toLocaleDateString() + " " + post.date.toTimeString().substr(0,5));
+        $("#view_content").html(post.content);
+        if(post.creatorcode == window.sessionStorage["uidcode"]){
+            $("#edit_btn").css("visibility","visible").click(()=>{
+                edit(id);
+            });
+        }else $("#edit_btn").css("visibility","hidden");   
+        $("#view_likes").html(post.liked.length+" user" + ((post.liked.length !== 1)?"s":""));
+        window.open('#view','_self');
+    }
+    function edit(id){
+        var post = data_posts[id-1];
+        $("#edit_uid").html(post.creator);
+        $("#edit_content").val(post.content);
+        $("#edit_id").val(id);
+        $("#del_btn").click(async ()=>{
+            var dataOut = {
+                status:"delete",
+                postId:id,
+                code : window.sessionStorage["uidcode"]
+            }
+            var recieved = await new Promise((res,rej)=>{
+                $.ajax({
+                    type: "POST",
+                    url: "/ajax",
+                    data: dataOut,
+                    success: function(data) {
+                        res(data);
+                    }
+                });
+            });
+            if(recieved.result !== "success"){
+                alert(recieved.result);
+            }else{
+                window.open("#home","_self");
+                angular.element($("body")).scope().$apply();
+            }
+        });
+        window.open('#edit','_self');
+    }
+</script>
+<style>
+    .smallers{
+        font-size: 50%;
+        color: gray;
+    }
+</style>
+<script type="text/javascript"> 
+var data_posts = [];
+</script>
+</head>
+<body ng-app="disp" ng-controller="MainController">
+	<div data-role="page" id="home">
+    	<div data-role="header" class="header" align="center" id="home_head">    
+          <a data-icon="power" data-iconpos="notext" data-role="button" onclick="logout()" id="set" >&nbsp;</a>
+          <h1>BLOG</h1> 
+          
+        </div>
+        <ul data-role="listview" data-inset="true" data-filter="true" id="plan_ul">
+        <li data-inline="true" data-iconshadow="true" data-theme="" data-icon = "plus">
+        	<a href="#post"><h3>新增貼文</h3></a>
+        </li>
+        <li data-inline="true" ng-repeat = "q in posts" data-iconshadow="true" style="{{(q.deleted == 1)?'display:none':''}}">
+        	<a ng-click="view(q.id)" id="{{ 'a'+q.id }}"><h3>{{ shorten(q.content) }}</h3><p style="text-align:center"><span style="float:left">{{ q.date.toLocaleDateString() + " " + q.date.toTimeString().substr(0,5) }}</span></p><span class="ui-li-count">{{ q.creator }}</span></a><a ng-click = "like(q.id)" data-icon="heart" data-iconshadow="true" data-theme="{{ liked(q.id) }}" id="{{ 'l'+q.id }}"></a>
+        </li>
+        </ul>
+        <div data-role="footer"></div>
+    </div>
+    <div id="menu" data-role="dialog">
+    	<div data-role="header" style="text-align:center;"><h1>選單</h1></div>
+        <div data-role="content">
+        <ul data-role="listview" data-inset="true" id="menu_ul">
+        <li><a href="#settings">設定</a></li>
+        <li><a href="#new">新增</a></li>
+        <li><a onClick="logout(1);">登出</a></li>
+        </ul>
+        </div>
+        <div data-role="footer"></div>
+    </div>
+    <div id="post" data-role="dialog">
+    	<div data-role="header" style="text-align:center;"><h1>新增貼文</h1></div>
+        <div data-role="content">
+        <form id="post_form">
+            <textarea id="post_content"></textarea>
+            <input type="submit" value="發佈" data-inline="true" /><input type="reset" value="清除輸入" data-inline="true" />
+        </form>
+        </div>
+        <div data-role="footer"></div>
+    </div>
+    <div id="edit" data-role="dialog">
+    	<div data-role="header" style="text-align:center;"><h1>編輯貼文</h1></div>
+        <div data-role="content">
+        <form id="edit_form">
+            <textarea id="edit_content"></textarea>
+            <input type="hidden" id = "edit_id" />
+            <input type="submit" value="發佈" data-inline="true" /><input type="reset" value="清除輸入" data-inline="true" /><input type="button" id = "del_btn" value="刪除貼文" data-inline="true" />
+        </form>
+        </div>
+        <div data-role="footer"></div>
+    </div>
+    <div id="view" data-role="dialog">
+    	<div data-role="header" style="text-align:center;" ><h1>查看貼文</h1><a data-icon="edit" data-iconpos="notext" data-role="button" id="edit_btn" class="ui-btn-right">&nbsp;</a></div>
+        <div data-role="content">
+            <p class="smallers"><span id="view_date"></span> by <span id="view_uid"></span></p>
+        <p id = "view_content"></p>
+        
+        </div>
+        <div data-role="footer"><h1><span class = "smallers"><span id="view_likes"></span> liked this post</span></h1></div>
+    </div>
+
+    
+<!-- modules -->
+<script type="text/javascript">
+var app = angular.module("disp", []);
+app.controller('MainController',function($scope) {
+    //var content=angular.element('#home');
+    if(window.sessionStorage["uidcode"] == null){
+        if(window.localStorage["uidcode"] != null)
+            window.sessionStorage["uidcode"] = window.localStorage["uidcode"];
+        else window.open("/login","_self");
+    }
+    var dataOut = {
+        status:"retrieve",
+        code: window.sessionStorage["uidcode"]
+    }
+    $scope.view = view;
+    $scope.like = async function(id){
+        post = $scope.posts[id-1];
+        var dataOut = {
+            status: "like",
+            postId : id,
+            code : window.sessionStorage["uidcode"]
+        }
+        var recieved = await new Promise((res,rej)=>{
+            $.ajax({
+                type: "POST",
+                url: "/ajax",
+                data: dataOut,
+                success: function(data) {
+                    res(data);
+                }
+            });
+        });
+        if(recieved.result != "success"){
+            alert(recieved.result);
+            return;
+        }
+        $("#l"+id).toggleClass("ui-btn-b").toggleClass("ui-btn-a");
+    }
+    $scope.shorten = function(str,len = 10){
+        return str.substr(0,len)+"...";
+    }
+    $scope.liked = function(id){
+        if($scope.posts[id-1].liked.indexOf(window.sessionStorage["uidcode"]) != -1){
+                return "b";
+        }else return "a";
+    }
+    new Promise((res,rej)=>{
+        $.ajax({
+            type: "POST",
+            url: "/ajax",
+            data: dataOut,
+            success: function(data) {
+                res(data);
+            }
+        });
+    }).then((recieved)=>{
+        if(recieved.result != "success"){
+            if(recieved.result == "user error"){
+                logout();
+            }
+            else alert(recieved.result);
+        }
+        data_posts = recieved.posts;
+        for(i in data_posts){
+            data_posts[i].liked = JSON.parse(data_posts[i].liked);
+            data_posts[i].date = new Date(data_posts[i].date);
+            
+        }
+        $scope.posts = data_posts;
+        $scope.$apply();
+    });
+});
+    
+</script>
+</body>
+</html>

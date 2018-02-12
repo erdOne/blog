@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+        <script src="/lib/js/sha256.min.js"></script>
+        <script>
+            $.mobile.loading( 'show', {
+                text: 'Loading',
+                textVisible: true,
+                textonly: true,
+                theme: 'z',
+                html: ""
+            });
+            
+            $(()=>{
+                $(window).resize(resized);
+                resized();
+                $("label").css("width","5em").attr("align","left");
+                
+                $("#login_form").submit(async (e)=>{
+                    e.preventDefault();
+                    try{
+                        var uid_re = /^[^\'\"]{0,}$/
+                        var psw_re = /^[^\'\"]{8,45}$/;
+                        if(!uid_re.test($("#login_uid").val()))throw "invalid username";
+                        if(!psw_re.test($("#login_psw").val()))throw "invalid password";
+                        var dataOut = {
+                            status: "login",
+                            uid: $("#login_uid").val(),
+                            psw: sha256($("#login_psw").val())
+                        }
+                        var recieved = await new Promise((res,rej)=>{
+                            $.ajax({
+                                type: "POST",
+                                url: "/ajax",
+                                data: dataOut,
+                                success: function(data) {
+                                    res(data);
+                                }
+                            });
+                        });
+                        if(recieved.result != "success")throw recieved.result;
+                        login(recieved.code,$("#login_keep").val());
+                    }catch(e){
+                        alert(e);
+                    }
+                });
+                $("#new_form").submit(async (e)=>{
+                    e.preventDefault();
+                    try{
+                        var uid_re = /^[^\'\"]{0,}$/
+                        var psw_re = /^[^\'\"]{8,}$/;
+                        if(!uid_re.test($("#new_uid").val()))throw "invalid username";
+                        if(!psw_re.test($("#new_psw").val()))throw "invalid password";
+                        if($("#new_psw").val() !== $("#new_cfm").val())throw "password and confirm password is not the same";
+                        var dataOut = {
+                            status: "new",
+                            uid: $("#new_uid").val(),
+                            psw: sha256($("#new_psw").val())
+                        }
+                        var recieved = await new Promise((res,rej)=>{
+                            $.ajax({
+                                type: "POST",
+                                url: "/ajax",
+                                data: dataOut,
+                                success: function(data) {
+                                    res(data);
+                                }
+                            });
+                        });
+                        if(recieved.result != "success")throw recieved.result;
+                        login(recieved.code,$("#new_keep").val());
+                    }catch(e){
+                        alert(e);
+                    }
+                });
+            });
+            function login(code,keep){
+                if(keep == true){
+                    window.localStorage["uidcode"] = code;
+                }
+                window.sessionStorage["uidcode"] = code;
+                open("index.html","_self");
+            }
+            function resized(){
+                var w = parseInt($( document ).width()/2);
+                w *= (3 / 2 - Math.atan(0.03*(2*w - 625)) / Math.PI);
+                $("#login_form").css("width",w+"px");
+                $("#new_form").css("width",w+"px");
+            }
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id = "login_page">
+            <div data-role="header" align="center" ><h1>登入</h1></div>
+            <div data-role="content" align="center" >
+                <form id="login_form">
+                    <div class="ui-field-contain">
+                        <label for="login_uid">帳號：</label><input type = "text" data-inline = "true" data-mini = "true" id = "login_uid" name = "uid"/>
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="login_psw">密碼：</label><input type = "password" id = "login_psw"/>
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="login_keep">保持登錄：</label>
+                        <select id="login_keep" data-role="slider" >
+                            <option value="0" default>否</option>
+                            <option value="1">是</option>
+                        </select> 
+                    </div> 
+                    <input type="submit" value="登入" data-inline="true" /><input type="reset" value="清除輸入" data-inline="true" />
+                </form>
+            </div>
+                
+            <div data-role="footer" align = "center"><h1>還沒有帳號嗎？<a href="#new_page" data-role="none">新增帳號</a></h1></div>
+        </div>
+        
+        <div data-role="page" id = "new_page">
+            <div data-role="header" align="center" ><h1>新增帳號</h1></div>
+            <div data-role="content" align="center" >
+                <form id="new_form">
+                    <div class="ui-field-contain">
+                        <label for="new_uid">帳號：</label><input type = "text" data-inline = "true" id = "new_uid" name = "uid"/>
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="new_psw">密碼：</label><input type = "password" id = "new_psw"/>
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="new_cfm">確認密碼：</label><input type = "password" id = "new_cfm"/>
+                    </div> 
+                    <div class="ui-field-contain">
+                        <label for="new_keep">保持登錄：</label>
+                        <select id="new_keep" data-role="slider" >
+                            <option value="0" default>否</option>
+                            <option value="1">是</option>
+                        </select> 
+                    </div>
+                    <input type="submit" value="新增帳號" data-inline="true" /><input type="reset" value="清除輸入" data-inline="true" />
+                    
+                </form>
+            </div>
+            <div data-role="footer" align = "center"><h1>已經有帳號了嗎？<a href="#login_page" data-role="none">前往登入</a></h1></div>
+        </div>
+    </body>
+</html>
