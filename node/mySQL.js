@@ -6,8 +6,8 @@ var F = require("./files.js");
 async function query(sql){
     var conn = mysql.createConnection({
         host: "localhost",
-        user: "achyang",
-        password: "andrew0524"
+        user: "root",
+        password: "root"
     });
     var res;
     var x = new Promise((res,rej) =>{

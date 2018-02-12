@@ -4354,3 +4354,722 @@ Reading file with path /Users/Andrew/Documents/htdocs/lib/js/sha256.min.js
 Request for /lib/js/jquery.mobile-1.4.5.min.map received, with query {}.
 Reading file with path /Users/Andrew/Documents/htdocs/lib/js/jquery.mobile-1.4.5.min.map
 Routing path: /lib/js/jquery.mobile-1.4.5.min.map
+
+Server starting at path :/Users/Andrew/Documents/blog
+Server has started at 2018-02-12T16:10:22.264Z and is listening on port 1270.
+Request for /login.html received, with query {}.
+Routing path: /login.html
+Reading file with path /Users/Andrew/Documents/blog/login.html
+Request for /lib/js/sha256.min.js received, with query {}.
+Routing path: /lib/js/sha256.min.js
+Reading file with path /Users/Andrew/Documents/blog/lib/js/sha256.min.js
+Request for /ajax received, with query {}.
+Server has recieved data: status=login&uid=andrew&psw=3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab
+POST recieved with body {"status":"login","uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab"}
+MySQL queried with sql: SELECT * FROM data.users WHERE uid = 'andrew'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+message sent with data{"status":"login","result":"success","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1}],"result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=post&content=google+is+good+%0Ait+is+better+than+google&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"post","content":"google is good \nit is better than google","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: INSERT INTO data.posts(creator, creatorcode, content, liked, date) VALUES ('andrew', 'c8d1a6f743830bd5986760d5b59988c17516f605', 'google is good 
+it is better than google', '[]', NOW());
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":3,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+message sent with data{"status":"post","result":"success"}
+Request for /index.html received, with query {}.
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Routing path: /index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}],"result":"success"}
+Routing path: /index.html
+Request for /index.html received, with query {}.
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}],"result":"success"}
+Routing path: /index.html
+Request for /index.html received, with query {}.
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=edit&content=google+is+good+%0Ait+is+better+than+google%0Abetter+than+me&code=c8d1a6f743830bd5986760d5b59988c17516f605&postId=3
+POST recieved with body {"status":"edit","content":"google is good \nit is better than google\nbetter than me","code":"c8d1a6f743830bd5986760d5b59988c17516f605","postId":"3"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: UPDATE data.posts SET content = 'google is good 
+it is better than google
+better than me', editdate = NOW() WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+message sent with data{"status":"edit","result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":0}],"result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+message sent with data{"status":"delete","result":"success"}
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=3&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"3","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 3 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1}],"result":"success"}
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /index.html received, with query {}.
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1}],"result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=post&content=something+else&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"post","content":"something else","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: INSERT INTO data.posts(creator, creatorcode, content, liked, date) VALUES ('andrew', 'c8d1a6f743830bd5986760d5b59988c17516f605', 'something else', '[]', NOW());
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":4,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+message sent with data{"status":"post","result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}],"result":"success"}
+Routing path: /index.html
+Request for /index.html received, with query {}.
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=4&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"4","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=delete&postId=4&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"delete","postId":"4","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 4 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+MySQL queried with sql: UPDATE data.posts SET deleted = 1 WHERE id = 4 AND creatorcode = 'c8d1a6f743830bd5986760d5b59988c17516f605';
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+message sent with data{"status":"delete","result":"success"}
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+message sent with data{"status":"delete","result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":1}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":1}],"result":"success"}
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":1}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":1}],"result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=post&content=breadslkfa%0Asd%0Afas%0Af%0Asaf%0Asdf%0Asdfdsfsdf&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"post","content":"breadslkfa\nsd\nfas\nf\nsaf\nsdf\nsdfdsfsdf","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: INSERT INTO data.posts(creator, creatorcode, content, liked, date) VALUES ('andrew', 'c8d1a6f743830bd5986760d5b59988c17516f605', 'breadslkfa
+sd
+fas
+f
+saf
+sdf
+sdfdsfsdf', '[]', NOW());
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":5,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+message sent with data{"status":"post","result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":1},{"id":5,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"breadslkfa\nsd\nfas\nf\nsaf\nsdf\nsdfdsfsdf","liked":"[]","date":"2018-02-12T16:33:42.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":1},{"id":5,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"breadslkfa\nsd\nfas\nf\nsaf\nsdf\nsdfdsfsdf","liked":"[]","date":"2018-02-12T16:33:42.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":1},{"id":5,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"breadslkfa\nsd\nfas\nf\nsaf\nsdf\nsdfdsfsdf","liked":"[]","date":"2018-02-12T16:33:42.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":1},{"id":5,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"breadslkfa\nsd\nfas\nf\nsaf\nsdf\nsdfdsfsdf","liked":"[]","date":"2018-02-12T16:33:42.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /index.html received, with query {}.
+Routing path: /index.html
+Reading file with path /Users/Andrew/Documents/blog/index.html
+Request for /ajax received, with query {}.
+Server has recieved data: status=retrieve&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"retrieve","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT * FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew","psw":"3c29edf12375fd8c068bc533ece0be46663ef27300edf062a759cfdc67ca67ab","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}]
+MySQL queried with sql: SELECT * FROM data.posts
+database returned result [{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":1},{"id":5,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"breadslkfa\nsd\nfas\nf\nsaf\nsdf\nsdfdsfsdf","liked":"[]","date":"2018-02-12T16:33:42.000Z","editdate":null,"deleted":0}]
+message sent with data{"status":"retrieve","posts":[{"id":1,"creator":"someone","creatorcode":"no","content":"something else teststststst 但是他是不是不收中文じゃないtsese 12312312313123131313123123123","liked":"[]","date":"2018-02-12T07:31:14.000Z","editdate":"2018-02-12T12:09:09.000Z","deleted":0},{"id":2,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":" 不要hello world","liked":"[]","date":"2018-02-12T11:57:52.000Z","editdate":"2018-02-12T14:11:55.000Z","deleted":1},{"id":3,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"google is good \nit is better than google\nbetter than me","liked":"[]","date":"2018-02-12T16:11:15.000Z","editdate":"2018-02-12T16:20:23.000Z","deleted":1},{"id":4,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"something else","liked":"[]","date":"2018-02-12T16:27:45.000Z","editdate":null,"deleted":1},{"id":5,"creator":"andrew","creatorcode":"c8d1a6f743830bd5986760d5b59988c17516f605","content":"breadslkfa\nsd\nfas\nf\nsaf\nsdf\nsdfdsfsdf","liked":"[]","date":"2018-02-12T16:33:42.000Z","editdate":null,"deleted":0}],"result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=like&postId=1&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"like","postId":"1","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT uid FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew"}]
+MySQL queried with sql: SELECT liked FROM data.posts WHERE id = 1
+database returned result [{"liked":"[]"}]
+dbg
+MySQL queried with sql: UPDATE data.posts SET liked = '["c8d1a6f743830bd5986760d5b59988c17516f605"]' WHERE id = 1
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+message sent with data{"status":"like","result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=like&postId=5&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"like","postId":"5","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT uid FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew"}]
+MySQL queried with sql: SELECT liked FROM data.posts WHERE id = 5
+database returned result [{"liked":"[]"}]
+dbg
+MySQL queried with sql: UPDATE data.posts SET liked = '["c8d1a6f743830bd5986760d5b59988c17516f605"]' WHERE id = 5
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+message sent with data{"status":"like","result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=like&postId=1&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"like","postId":"1","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT uid FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew"}]
+MySQL queried with sql: SELECT liked FROM data.posts WHERE id = 1
+database returned result [{"liked":"[\"c8d1a6f743830bd5986760d5b59988c17516f605\"]"}]
+dbg
+MySQL queried with sql: UPDATE data.posts SET liked = '[]' WHERE id = 1
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+message sent with data{"status":"like","result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=like&postId=5&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"like","postId":"5","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT uid FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew"}]
+MySQL queried with sql: SELECT liked FROM data.posts WHERE id = 5
+database returned result [{"liked":"[\"c8d1a6f743830bd5986760d5b59988c17516f605\"]"}]
+dbg
+MySQL queried with sql: UPDATE data.posts SET liked = '[]' WHERE id = 5
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+message sent with data{"status":"like","result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=like&postId=1&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"like","postId":"1","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT uid FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew"}]
+MySQL queried with sql: SELECT liked FROM data.posts WHERE id = 1
+database returned result [{"liked":"[]"}]
+dbg
+MySQL queried with sql: UPDATE data.posts SET liked = '["c8d1a6f743830bd5986760d5b59988c17516f605"]' WHERE id = 1
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+message sent with data{"status":"like","result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=like&postId=5&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"like","postId":"5","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT uid FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew"}]
+MySQL queried with sql: SELECT liked FROM data.posts WHERE id = 5
+database returned result [{"liked":"[]"}]
+dbg
+MySQL queried with sql: UPDATE data.posts SET liked = '["c8d1a6f743830bd5986760d5b59988c17516f605"]' WHERE id = 5
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+message sent with data{"status":"like","result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=like&postId=1&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"like","postId":"1","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT uid FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew"}]
+MySQL queried with sql: SELECT liked FROM data.posts WHERE id = 1
+database returned result [{"liked":"[\"c8d1a6f743830bd5986760d5b59988c17516f605\"]"}]
+dbg
+MySQL queried with sql: UPDATE data.posts SET liked = '[]' WHERE id = 1
+database returned result {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+message sent with data{"status":"like","result":"success"}
+Request for /ajax received, with query {}.
+Server has recieved data: status=like&postId=5&code=c8d1a6f743830bd5986760d5b59988c17516f605
+POST recieved with body {"status":"like","postId":"5","code":"c8d1a6f743830bd5986760d5b59988c17516f605"}
+MySQL queried with sql: SELECT uid FROM data.users WHERE code = 'c8d1a6f743830bd5986760d5b59988c17516f605'
+database returned result [{"uid":"andrew"}]
+MySQL queried with sql: SELECT liked FROM data.posts WHERE id = 5
+database returned result [{"liked":"[\"c8d1a6f743830bd5986760d5b59988c17516f605\"]"}]
+dbg
+Error: ER_CON_COUNT_ERROR: Too many connections
+Error: Cannot enqueue Query after fatal error.
+database returned result undefined
+message sent with data{"status":"like","result":"success"}

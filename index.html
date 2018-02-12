@@ -29,7 +29,7 @@
                 alert(recieved.result);
             }else{
                 window.open("#home","_self");
-                angular.element($("body")).scope().$apply();
+                angular.element($("body")).scope().reload();
             }
         });
         $("#edit_form").submit(async ()=>{
@@ -68,14 +68,18 @@
     }
     function view(id){
         var post = data_posts[id-1];
+        $("#view_head").html('<span id="view_date"></span> by <span id="view_uid"></span>');
         $("#view_uid").html(post.creator);
         $("#view_date").html(post.date.toLocaleDateString() + " " + post.date.toTimeString().substr(0,5));
-        $("#view_content").html(post.content);
+        $("#view_content").html(post.content.replace(/\n/g,"<br>"));
         if(post.creatorcode == window.sessionStorage["uidcode"]){
             $("#edit_btn").css("visibility","visible").click(()=>{
                 edit(id);
             });
-        }else $("#edit_btn").css("visibility","hidden");   
+        }else $("#edit_btn").css("visibility","hidden");
+        if(post.editdate != null){
+            $("#view_uid").after("<br>last edited at "+post.editdate.toLocaleDateString() + " " + post.editdate.toTimeString().substr(0,5));
+        }
         $("#view_likes").html(post.liked.length+" user" + ((post.liked.length !== 1)?"s":""));
         window.open('#view','_self');
     }
@@ -104,7 +108,7 @@
                 alert(recieved.result);
             }else{
                 window.open("#home","_self");
-                angular.element($("body")).scope().$apply();
+                angular.element($("body")).scope().reload();
             }
         });
         window.open('#edit','_self');
@@ -127,7 +131,7 @@ var data_posts = [];
           <h1>BLOG</h1> 
           
         </div>
-        <ul data-role="listview" data-inset="true" data-filter="true" id="plan_ul">
+        <ul list-view data-watch="posts" data-role="listview" data-inset="true" data-filter="true" id="plan_ul">
         <li data-inline="true" data-iconshadow="true" data-theme="" data-icon = "plus">
         	<a href="#post"><h3>新增貼文</h3></a>
         </li>
@@ -172,7 +176,7 @@ var data_posts = [];
     <div id="view" data-role="dialog">
     	<div data-role="header" style="text-align:center;" ><h1>查看貼文</h1><a data-icon="edit" data-iconpos="notext" data-role="button" id="edit_btn" class="ui-btn-right">&nbsp;</a></div>
         <div data-role="content">
-            <p class="smallers"><span id="view_date"></span> by <span id="view_uid"></span></p>
+            <p class="smallers" id ="view_head"><span id="view_date"></span> by <span id="view_uid"></span></p>
         <p id = "view_content"></p>
         
         </div>
@@ -226,33 +230,49 @@ app.controller('MainController',function($scope) {
                 return "b";
         }else return "a";
     }
-    new Promise((res,rej)=>{
-        $.ajax({
-            type: "POST",
-            url: "/ajax",
-            data: dataOut,
-            success: function(data) {
-                res(data);
+    $scope.reload = function(){
+        new Promise((res,rej)=>{
+            $.ajax({
+                type: "POST",
+                url: "/ajax",
+                data: dataOut,
+                success: function(data) {
+                    res(data);
+                }
+            });
+        }).then((recieved)=>{
+            if(recieved.result != "success"){
+                if(recieved.result == "user error"){
+                    logout();
+                }
+                else alert(recieved.result);
             }
+            data_posts = recieved.posts;
+            for(i in data_posts){
+                data_posts[i].liked = JSON.parse(data_posts[i].liked);
+                data_posts[i].date = new Date(data_posts[i].date);
+                if(data_posts[i].editdate != null)data_posts[i].editdate = new Date(data_posts[i].editdate);
+
+            }
+            $scope.posts = data_posts;
+            $scope.$apply();
         });
-    }).then((recieved)=>{
-        if(recieved.result != "success"){
-            if(recieved.result == "user error"){
-                logout();
-            }
-            else alert(recieved.result);
-        }
-        data_posts = recieved.posts;
-        for(i in data_posts){
-            data_posts[i].liked = JSON.parse(data_posts[i].liked);
-            data_posts[i].date = new Date(data_posts[i].date);
-            
-        }
-        $scope.posts = data_posts;
-        $scope.$apply();
-    });
+    }
+    $scope.reload();
 });
-    
+app.directive('listView', function () {
+  var link=function(scope, element, attrs) {
+    $(element).listview();
+    scope.$watchCollection(attrs.watch, function() {
+      $(element).listview("refresh");
+    });
+  };
+  return {
+    restrict: 'EA',
+    scope:false,
+    link: link
+  };
+});    
 </script>
 </body>
 </html>
