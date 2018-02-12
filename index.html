@@ -220,6 +220,7 @@ app.controller('MainController',function($scope) {
             alert(recieved.result);
             return;
         }
+        post.liked.push(window.sessionStorage["uidcode"]);
         $("#l"+id).toggleClass("ui-btn-b").toggleClass("ui-btn-a");
     }
     $scope.shorten = function(str,len = 10){
